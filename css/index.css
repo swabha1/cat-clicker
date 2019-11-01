@@ -1,0 +1,15 @@
+.cat-container {
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.pock-count {
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.pock-count span {
+  font-weight: bold;
+}

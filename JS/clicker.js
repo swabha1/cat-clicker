@@ -1,3 +1,5 @@
+count = 0;
 document.getElementById('catImage').addEventListener('click', event => {
-  console.log(event);
+  count++;
+  document.getElementById('count').innerText = count;
 });
