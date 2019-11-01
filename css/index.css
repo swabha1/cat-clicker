@@ -1,15 +1,33 @@
-.cat-container {
+.cat-box {
   border-radius: 10px;
   border: 2px solid #ccc;
   padding: 10px;
   margin: 10px;
   display: inline-block;
-}
-
-.pock-count {
+  position: relative;
+  text-align: center;
   font-size: 15px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-width: 300px;
 }
-.pock-count span {
-  font-weight: bold;
+
+.floating-label {
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  opacity: 0.6;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.top-left {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.bottom-right {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
 }
