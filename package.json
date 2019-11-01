@@ -1,0 +1,27 @@
+{
+  "name": "cat-clicker",
+  "version": "1.0.0",
+  "description": "Cat clicker excercise from cource.",
+  "main": "index.html",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swabha1/cat-clicker.git"
+  },
+  "keywords": [
+    "javascript",
+    "design",
+    "pattern"
+  ],
+  "author": "Swapnil Bhamat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swabha1/cat-clicker/issues"
+  },
+  "homepage": "https://github.com/swabha1/cat-clicker#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}
