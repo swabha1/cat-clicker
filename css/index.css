@@ -1,3 +1,40 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.cat-list-container {
+  width: 30%;
+  float: left;
+  border-right: 1px solid #ccc;
+}
+
+.cat-list {
+  list-style: none;
+}
+
+.cat {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.cat:hover {
+  background-color: #ccc;
+  color: #fff;
+}
+
+.cat-preview {
+  width: 65%;
+  float: right;
+}
+
 .cat-box {
   border-radius: 10px;
   border: 2px solid #ccc;
@@ -6,9 +43,11 @@
   display: inline-block;
   position: relative;
   text-align: center;
-  font-size: 15px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  max-width: 300px;
+  max-width: 600px;
+}
+
+.cat-box img {
+  max-width: 600px;
 }
 
 .floating-label {

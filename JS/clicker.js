@@ -8,34 +8,68 @@ const catModel = [
     name: 'Chichi',
     url: './images/cat_2.jpg',
     touchCount: 0
+  },
+  {
+    name: 'Little friend',
+    url: './images/cat_3.jpg',
+    touchCount: 0
+  },
+  {
+    name: 'White Angel',
+    url: './images/cat_4.jpg',
+    touchCount: 0
+  },
+  {
+    name: 'Cutty Cat',
+    url: './images/cat_5.jpg',
+    touchCount: 0
   }
 ];
 
 let catClicker = (catData => {
   let catCollection = [];
 
-  let render = catArr => {
-    let catBoxes = '';
-    for (let i = 0; i < catArr.length; i++) {
-      catBoxes += `
+  let preview = cat => {
+    let catPreview = `
       <div class="cat-box">
-        <img class="cat-image" id="${i}" src="${catArr[i].url}" width="300px" alt="${catArr[i].name}" />
-        <div class="cat-name top-left floating-label">${catArr[i].name}</div>
-        <div class="touch-count bottom-right floating-label" id="msg_${i}">Touched ${catArr[i].touchCount} times!!</div>
+        <img class="cat-image" id="${cat.id}" src="${cat.url}" alt="${cat.name}" />
+        <div class="cat-name top-left floating-label">${cat.name}</div>
+        <div class="touch-count bottom-right floating-label" id="msg_${cat.id}">You touched ${cat.touchCount} times!!</div>
       </div>`;
-    }
-    document.getElementById('cat-container').innerHTML = catBoxes;
+    document.getElementById('cat-preview').innerHTML = catPreview;
 
-    let catSelector = document.querySelectorAll('.cat-image');
-    attachClickListner(catSelector);
+    let catSelector = document.getElementById(`${cat.id}`);
+    attachPreviewListner(catSelector);
   };
 
-  let attachClickListner = selector => {
+  let renderList = catArr => {
+    let catList = '';
+    for (let i = 0; i < catArr.length; i++) {
+      catList += `<li class="cat" id="cat_${i}" title="${catArr[i].name}">${catArr[i].name}</li>`;
+    }
+    document.getElementById('cat-list').innerHTML = catList;
+    let catSelector = document.querySelectorAll('.cat');
+    attachCatListner(catSelector);
+  };
+
+  let attachCatListner = selector => {
     selector.forEach(element => {
       element.addEventListener('click', e => {
-        let catId = e.target.id;
-        updateCount(catId);
+        let catId = parseInt(e.target.id.match(/\d+/)[0]);
+        let catVO = catCollection[catId];
+        catVO['id'] = catId;
+        preview(catVO);
       });
+    });
+  };
+
+  let attachPreviewListner = selector => {
+    selector.removeEventListener('click', e => {
+      console.log(e);
+    });
+    selector.addEventListener('click', e => {
+      let catId = e.target.id;
+      updateCount(catId);
     });
   };
 
@@ -43,12 +77,12 @@ let catClicker = (catData => {
     catCollection[id].touchCount++;
     document.getElementById(
       `msg_${id}`
-    ).innerHTML = `Touched ${catCollection[id].touchCount} times!!`;
+    ).innerHTML = `You touched ${catCollection[id].touchCount} times!!`;
   };
 
   /*
    * Rendering
    */
   catCollection = catData;
-  render(catCollection);
+  renderList(catCollection);
 })(catModel);
